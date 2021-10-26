@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>App.Chat.Client</AssemblyName>
+    <RootNamespace>App.Chat.Client</RootNamespace>
+    <ApplicationIcon>_ico\messaging.ico</ApplicationIcon>
+    <Win32Resource></Win32Resource>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="_ico\messaging.ico" />
+    <None Remove="_img\ChatBG.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes" Version="3.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="3.1.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="PropertyChanged.Fody" Version="3.2.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\App.Chat.Base\App.Chat.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="_ico\messaging.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="_img\ChatBG.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+</Project>

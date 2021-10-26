@@ -1,0 +1,40 @@
+﻿<Window x:Class="App.Chat.Client.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:view="clr-namespace:App.Chat.Client"
+        mc:Ignorable="d"
+        FontSize="16"
+        Style="{StaticResource BaseWindow}"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        WindowStartupLocation="CenterScreen"
+        Title="VS | MESSENGER" Width="800" Height="500" ResizeMode="NoResize">
+
+    <Window.Resources>
+        <view:ChatScreenConverter x:Key="ChangeScreen"/>
+    </Window.Resources>
+
+    <md:DialogHost>
+        <md:DialogHost.DialogContent>
+            <UserControl Content="{Binding ChatConfig}"/>
+        </md:DialogHost.DialogContent>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="AUTO"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="AUTO"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <view:AppHeader Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"/>
+            <ContentControl Grid.Column="1" Grid.Row="1" Content="{Binding SelectedUser, Converter={StaticResource ChangeScreen}}"/>
+            <md:Card Grid.Column="0" Grid.Row="1" UniformCornerRadius="0">
+                <view:UsersControl Width="250"/>
+            </md:Card>
+        </Grid>
+    </md:DialogHost>
+
+</Window>

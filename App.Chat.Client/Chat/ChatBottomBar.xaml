@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="App.Chat.Client.ChatBottomBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:App.Chat.Client"
+             mc:Ignorable="d" d:DesignWidth="500"
+             MaxHeight="200"
+             Style="{StaticResource BaseControl}"
+             Background="Transparent"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="AUTO"/>
+        </Grid.ColumnDefinitions>
+
+        <Rectangle Grid.ColumnSpan="2" Fill="{DynamicResource MaterialDesignPaper}" Opacity="0.9"/>
+        <TextBox x:Name="txtMessage"
+                 Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"    
+                 Margin="10 10 5 10"
+                 AcceptsReturn="True"
+                 TextWrapping="Wrap"
+                 VerticalScrollBarVisibility="Auto"
+                 md:HintAssist.Hint="Type a message..."/>
+
+        <Button Grid.Column="1" Margin="10" VerticalAlignment="Bottom"
+                Style="{StaticResource MaterialDesignIconButton}" ToolTip="Send"
+                Click="Button_Click">
+            <md:PackIcon Kind="Send" Width="16" Height="16" Foreground="DodgerBlue"
+                         VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Button>
+    </Grid>
+
+</UserControl>

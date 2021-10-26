@@ -1,0 +1,75 @@
+﻿<UserControl x:Class="App.Chat.Client.ChatConfig"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:App.Chat.Client"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="500"
+             Style="{StaticResource BaseControl}"
+             Loaded="UserControl_Loaded"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes">
+
+    <Border Width="500" Height="400">
+        <ScrollViewer Padding="20">
+            <StackPanel>
+                <TextBlock Text="SETTINGS" FontSize="24" Foreground="DodgerBlue"/>
+                <Separator Margin="0 5"/>
+
+                <StackPanel>
+                    <TextBlock Text="ACCOUNT" FontSize="16" Margin="0 5 0 0"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="AUTO"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Rectangle Grid.RowSpan="2" Width="84" Height="84" Margin="0 10 10 10" Fill="DodgerBlue"/>
+                        <Image Grid.RowSpan="2" Width="80" Height="80" Margin="0 10 10 10" Source="{Binding CurrentUser.Picture}" Stretch="UniformToFill"/>
+                        <Button x:Name="btnUserPic" Style="{StaticResource MaterialDesignFlatButton}" ToolTip="Change user picture"
+                                Margin="0 10 10 10" Height="84" Width="84" Opacity="0.7" Click="btnUserPic_Click">
+                            <md:PackIcon Kind="Edit" Foreground="#FF114C87"/>
+                        </Button>
+
+                        <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                            <TextBox x:Name="txtUsername"
+                                     Text="{Binding CurrentUser.Username}"
+                                     md:HintAssist.Hint="USERNAME"
+                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                            <TextBox x:Name="txtName"
+                                     Text="{Binding CurrentUser.Name}"
+                                     md:HintAssist.Hint="NAME" Margin="0 5 0 0"
+                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+
+                <Separator Margin="0 10"/>
+
+                <StackPanel>
+                    <TextBlock Text="CHAT" FontSize="16"/>
+
+                    <Grid Height="200" Margin="0 10">
+                        <Image Source="/_img/ChatBG.png" Stretch="UniformToFill"/>
+                        <Button x:Name="btnChatBg" Click="btnChatBg_Click"
+                                Style="{StaticResource MaterialDesignIconButton}" ToolTip="Change chat background"
+                                Background="{DynamicResource MaterialDesignTextFieldBoxBackground}"
+                                VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10">
+                            <md:PackIcon Kind="Edit" Foreground="#FF114C87"/>
+                        </Button>
+                    </Grid>
+
+                </StackPanel>
+
+                <Separator Margin="0 10 0 0"/>
+                
+                <Button x:Name="btnConfirm" Grid.Column="0" Content="CONFIRM" Foreground="White" Margin="0 20 0 10"
+                        Click="btnConfirm_Click"/>
+                <Button x:Name="btnCancel" Grid.Column="2" Content="CANCEL" Style="{StaticResource MaterialDesignFlatButton}"
+                        Click="btnCancel_Click"/>
+
+            </StackPanel>
+        </ScrollViewer>
+    </Border>
+
+</UserControl>

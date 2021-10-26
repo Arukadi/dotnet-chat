@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="App.Chat.Client.UserTemplate"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:App.Chat.Client"
+             mc:Ignorable="d" 
+             d:DesignHeight="50" d:DesignWidth="250"
+             Style="{StaticResource BaseControl}"
+             Background="Transparent"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes">
+
+    <Grid Height="50">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="AUTO"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Ellipse Width="40" Margin="5" Fill="DodgerBlue"/>
+        <md:PackIcon Kind="User" VerticalAlignment="Center" HorizontalAlignment="Center"
+                     Width="25" Height="25" Foreground="{DynamicResource MaterialDesignPaper}"/>
+
+        <StackPanel Grid.Column="1" Margin="5 0" VerticalAlignment="Center">
+            <TextBlock TextTrimming="CharacterEllipsis">
+                <Bold><Run Text="{Binding Username, FallbackValue=Username}" FontSize="18"/></Bold>
+                <LineBreak/>
+                <Run Text="{Binding Name, FallbackValue=Name}"/>
+            </TextBlock>
+        </StackPanel>
+
+    </Grid>
+    
+</UserControl>
